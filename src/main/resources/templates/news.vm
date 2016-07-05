@@ -1,0 +1,38 @@
+<html>
+<head>
+<body>
+<pre>
+    ${value}
+    $!{value2}
+    hello vm
+    $!{user}
+    ${user.name}
+    ${user.getName()}
+    #include("header.vm")
+    #include('header.vm')
+    #parse("header.vm")
+    #macro(d)##类似于方法
+        <tr>
+            <td>$!bodyContent</td>##类似于方法体
+        </tr>
+    #end
+    #d()##调用方法
+    #@d()Hello#end##此时渲染hello,而不渲染$!bodyContent
+
+    #foreach($colors in $allColors)
+        Color is $!{colors} - $foreach.index
+    #end
+    #macro(list $k  $v)
+        #foreach($colors in $allColors)
+            Color is $!{colors} - $foreach.count
+        #end
+    #end
+
+    #list()
+
+</pre>
+
+
+</body>
+</head>
+</html>
